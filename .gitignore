@@ -1,1 +1,5 @@
 .venv
+.idea
+.DS_Store
+.idea/misc.xml
+.idea/socket.iml

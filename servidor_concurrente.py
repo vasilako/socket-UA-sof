@@ -1,10 +1,19 @@
 import socket 
 import threading
 
+def get_local_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # No hace falta enviar nada, solo conecta para que se resuelva la interfaz
+        s.connect(("8.8.8.8", 80))
+        return s.getsockname()[0]
+    finally:
+        s.close()
 
 HEADER = 64
 PORT = 6060
-SERVER = socket.gethostbyname(socket.gethostname())
+SERVER = get_local_ip()
+# SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 FIN = "FIN"
@@ -12,6 +21,7 @@ MAX_CONEXIONES = 2
 
 def handle_client(conn, addr):
     print(f"[NUEVA CONEXION] {addr} connected.")
+
 
     connected = True
     while connected:
