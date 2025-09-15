@@ -22,7 +22,7 @@ try:
 
         # Solo envía si hay cambio
         if used != last_used:
-            mensaje = f"RAM usada: {used}%"
+            mensaje = f"RAM usada: {used} %, por host y puerto: {addr}"
             conn.sendall(mensaje.encode("utf-8"))
             print("[ENVIADO]", mensaje)
             last_used = used

@@ -1,0 +1,7 @@
+#En la terminal:
+# Crear la imagen
+docker build -t cliente-ram-img .
+
+#Levantar el contenedor, la ofcion -rm es para eliminar el contenedor después de pararlo
+docker run -d --rm --name client-socket-RAM cliente-ram-img
+
