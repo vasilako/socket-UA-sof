@@ -2,9 +2,11 @@ import socket
 import time
 import psutil
 
-#HOST = "host.docker.internal"  # Para Docker Desktop
-HOST = "192.168.100.183"        # IP del servidor en tu red local
-PORT = 6060
+print("=== SERVER CREDENCIALS SOCKET RAM ===")
+
+# Pedir IP y puerto al usuario
+HOST = input("Introduce la IP del servidor (ej: 127.0.0.1 o 192.168.x.x): ").strip()
+PORT = int(input("Introduce el puerto del servidor (ej: 6060): ").strip())
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((HOST, PORT))
